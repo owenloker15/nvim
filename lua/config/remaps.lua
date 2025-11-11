@@ -1,10 +1,8 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Exit insert mode
 vim.keymap.set("i", "<C-c>", "<Esc>")
-
--- Clear search highlights
-vim.keymap.set("i", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Move selected text up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
