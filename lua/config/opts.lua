@@ -24,6 +24,7 @@ vim.opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line
 
 -- clipboard
 vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+vim.opt.clipboard = "unnamedplus"
 
 -- splitting windows
 vim.opt.splitright = true -- when splitting windows vertically, make it go to the right

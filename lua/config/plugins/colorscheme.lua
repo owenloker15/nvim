@@ -8,27 +8,25 @@ return {
         vim.cmd.colorscheme("catppuccin")
     end
     },
-  {
-    "sainnhe/gruvbox-material",
-    priority = 1000,
-    config = function()
-      vim.g.gruvbox_material_background = "medium" -- soft | medium | hard
-      vim.g.gruvbox_material_palette = "mix"       -- default | mix | original
-      vim.g.gruvbox_material_enable_bold = 1
-      vim.g.gruvbox_material_enable_italic = 1
-
-      vim.cmd.colorscheme("gruvbox-material")
-    end,
-  },
-
-  -- Visual assist layer
-  {
-    "bartekprtc/gruv-vsassist.nvim",
-    dependencies = { "sainnhe/gruvbox-material" },
-    config = function()
-      require("gruv-vsassist").setup({
-        transparent_mode = false, -- set true if you use a transparent terminal
-      })
-    end,
-  },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        opts = {},
+        config = function()
+            vim.cmd.colorscheme("tokyonight")
+        end
+    },
+    -- {
+    --     "rose-pine/neovim",
+    --     name = "rose-pine",
+    --     config = function()
+    --         require('rose-pine').setup({
+    --             disable_background = true,
+    --             styles = {
+    --                 italic = false,
+    --             },
+    --         })
+    --         vim.cmd.colorscheme("rose-pine")
+    --     end
+    -- },
 }
