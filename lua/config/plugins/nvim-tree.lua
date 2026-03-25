@@ -29,6 +29,11 @@ return {
                     },
                 },
             },
+            update_focused_file = {
+                enable = false, -- disable auto-sync
+                update_cwd = false,
+                ignore_list = {},
+            },
             filters = {
                 dotfiles = false,
                 custom = { "^.git$" },
@@ -49,10 +54,23 @@ return {
             },
         })
 
-        -- Keybindings
+        -- Toggle focus between NvimTree and previous window
+        vim.keymap.set("n", "<leader>ef", function()
+            local api = require("nvim-tree.api")
+            local view = require("nvim-tree.view")
+            -- Check if current buffer is NvimTree
+            if vim.bo.filetype == "NvimTree" then
+                -- Go to previous window
+                vim.cmd("wincmd p")
+            else
+                -- Focus NvimTree
+                api.tree.focus()
+            end
+        end, { desc = "Toggle focus NvimTree/previous window" })
+
         vim.keymap.set("n", "<leader>ee", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
-        vim.keymap.set("n", "<leader>ef", ":NvimTreeFocus<CR>", { desc = "Focus NvimTree" })
         vim.keymap.set("n", "<leader>ec", ":NvimTreeCollapse<CR>", { desc = "Collapse NvimTree" })
         vim.keymap.set("n", "<leader>er", ":NvimTreeRefresh<CR>", { desc = "Refresh NvimTree" })
+        vim.keymap.set("n", "<leader>es", ":NvimTreeFindFile<CR>", { desc = "Sync NvimTree to current file" })
     end
 }

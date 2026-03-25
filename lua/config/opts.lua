@@ -2,9 +2,9 @@ vim.opt.relativenumber = true
 vim.opt.nu = true
 
 -- tabs and indentation
-vim.opt.tabstop = 4 -- 4 spaces for tabs
-vim.opt.shiftwidth = 4 -- 4 spaces for indent width
-vim.opt.expandtab = true -- expand tab into spaces
+vim.opt.tabstop = 4       -- 4 spaces for tabs
+vim.opt.shiftwidth = 4    -- 4 spaces for indent width
+vim.opt.expandtab = true  -- expand tab into spaces
 vim.opt.smartindent = true
 vim.opt.autoindent = true -- copy indent from current line when starting a new one
 
@@ -12,7 +12,7 @@ vim.opt.wrap = false
 
 -- search settings
 vim.opt.ignorecase = true -- ignore case when searching
-vim.opt.smartcase = true -- if you include mixed case in your search, assumes you want case sensitive
+vim.opt.smartcase = true  -- if you include mixed case in your search, assumes you want case sensitive
 
 -- Terminal colors
 vim.opt.termguicolors = true

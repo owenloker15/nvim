@@ -1,12 +1,12 @@
 -- Define the list of LSP servers once
 local lsp_servers = {
-  "html",
-  "cssls",
-  "lua_ls",
-  "pyright",
-  "eslint",
-  "tsserver", -- correct name for TypeScript
-  "clangd",   -- add this for C/C++
+	"html",
+	"cssls",
+	"lua_ls",
+	"pyright",
+	"eslint",
+	"tsserver", -- correct name for TypeScript
+	"clangd", -- add this for C/C++
 }
 
 return {
@@ -125,7 +125,7 @@ return {
 
 			-- Setup each server using the variable
 			for _, server in ipairs(lsp_servers) do
-				lspconfig[server].setup({
+				vim.lsp.config(server, {
 					on_attach = on_attach,
 					capabilities = capabilities,
 					flags = {
@@ -133,6 +133,8 @@ return {
 					},
 				})
 			end
+
+			vim.lsp.enable(lsp_servers)
 		end,
 	},
 

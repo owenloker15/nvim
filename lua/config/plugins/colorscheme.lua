@@ -1,11 +1,18 @@
 return {
 	{
-		"catppuccin/nvim",
-		name = "catppuccin",
+		"BoHomola/vsassist.nvim",
 		priority = 1000,
 		config = function()
+			vim.cmd.colorscheme("vsassist")
+		end,
+	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 999,
+		config = function()
 			require("catppuccin").setup({ flavour = "mocha" })
-			vim.cmd.colorscheme("catppuccin")
+			-- vim.cmd.colorscheme("catppuccin") -- Commented out to avoid override
 		end,
 	},
 	{
@@ -13,7 +20,7 @@ return {
 		lazy = false,
 		opts = {},
 		config = function()
-			vim.cmd.colorscheme("tokyonight")
+			-- vim.cmd.colorscheme("tokyonight") -- Commented out to avoid override
 		end,
 	},
 	-- {
