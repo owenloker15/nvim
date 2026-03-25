@@ -1,11 +1,18 @@
 return {
 	{
-		"BoHomola/vsassist.nvim",
+		"owenloker15/custom-vsassist.nvim",
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("vsassist")
+			vim.cmd.colorscheme("custom-vsassist")
 		end,
 	},
+	--	{
+	--		"BoHomola/vsassist.nvim",
+	--		priority = 1000,
+	--		config = function()
+	--			vim.cmd.colorscheme("vsassist")
+	--		end,
+	--	},
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",

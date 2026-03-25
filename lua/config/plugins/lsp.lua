@@ -98,16 +98,32 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
-			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			-- Function to set keymaps when LSP attaches
 			local on_attach = function(_, bufnr)
 				local opts = { noremap = true, silent = true, buffer = bufnr }
 
-				vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition", unpack(opts) })
+				local function switch_source_header()
+					local params = vim.lsp.util.make_text_document_params()
+					vim.lsp.buf_request(0, "textDocument/switchSourceHeader", params, function(err, result)
+						if err then
+							print("Error switching file: " .. err.message)
+							return
+						end
+						if not result then
+							print("No corresponding file found")
+							return
+						end
+						vim.cmd("edit " .. vim.uri_to_fname(result))
+					end)
+				end
+
+				vim.keymap.set("n", "<leader>h", switch_source_header, { desc = "Switch header/source", unpack(opts) })
+
+				vim.keymap.set("n", "<leader>i", vim.lsp.buf.definition, { desc = "Go to definition", unpack(opts) })
 				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration", unpack(opts) })
-				vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "List references", unpack(opts) })
+				vim.keymap.set("n", "<leader>r", vim.lsp.buf.references, { desc = "List references", unpack(opts) })
 				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation", unpack(opts) })
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation", unpack(opts) })
 				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP rename", unpack(opts) })
@@ -150,6 +166,7 @@ return {
 				"isort",
 				"black",
 				"pylint",
+				"pyright",
 				"eslint_d",
 			},
 		},

@@ -2,9 +2,11 @@ vim.opt.relativenumber = true
 vim.opt.nu = true
 
 -- tabs and indentation
-vim.opt.tabstop = 4       -- 4 spaces for tabs
-vim.opt.shiftwidth = 4    -- 4 spaces for indent width
-vim.opt.expandtab = true  -- expand tab into spaces
+-- Set indentation to 4 spaces instead of tabs
+vim.opt.expandtab = true      -- Use spaces instead of tabs
+vim.opt.shiftwidth = 4        -- Number of spaces for each indentation
+vim.opt.tabstop = 4           -- Number of spaces that a <Tab> in the file counts for
+vim.opt.softtabstop = 4       -- Number of spaces that a <Tab> counts for while performing editing operations
 vim.opt.smartindent = true
 vim.opt.autoindent = true -- copy indent from current line when starting a new one
 
