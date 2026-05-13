@@ -5,8 +5,9 @@ local lsp_servers = {
 	"lua_ls",
 	"pyright",
 	"eslint",
-	"tsserver", -- correct name for TypeScript
-	"clangd", -- add this for C/C++
+	"tsserver",
+	"clangd",
+	"rust_analyzer",
 }
 
 return {
@@ -168,6 +169,8 @@ return {
 				"pylint",
 				"pyright",
 				"eslint_d",
+				"clangd",
+				"rust-analyzer",
 			},
 		},
 		dependencies = {
