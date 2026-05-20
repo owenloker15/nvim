@@ -8,6 +8,7 @@ local lsp_servers = {
 	"tsserver",
 	"clangd",
 	"rust_analyzer",
+	"cmake",
 }
 
 return {
@@ -171,6 +172,7 @@ return {
 				"eslint_d",
 				"clangd",
 				"rust-analyzer",
+				"cmake-language-server",
 			},
 		},
 		dependencies = {
