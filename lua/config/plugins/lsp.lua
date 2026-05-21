@@ -173,6 +173,7 @@ return {
 				"clangd",
 				"rust-analyzer",
 				"cmake-language-server",
+				"html-lsp"
 			},
 		},
 		dependencies = {
