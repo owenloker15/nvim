@@ -4,43 +4,33 @@ return {
   build = ":TSUpdate",
   branch = "main",
   config = function()
-    -- import nvim-treesitter plugin
-    local treesitter = require("nvim-treesitter.configs")
+    local treesitter = require("nvim-treesitter")
 
-    -- configure treesitter
-    treesitter.setup({ -- enable syntax highlighting
-      highlight = {
-        enable = true,
-      },
-      -- enable indentation
-      indent = { enable = true },
-      -- ensure these language parsers are installed
-      ensure_installed = {
-        "json",
-        "javascript",
-        "html",
-        "css",
-        "bash",
-        "lua",
-        "vim",
-        "dockerfile",
-        "gitignore",
-        "c",
-        "cpp",
-        "cmake",
-        "python",
-        "rust",
-        "python",
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = false,
-          node_decremental = "<bs>",
-        },
-      },
+    treesitter.setup()
+
+    treesitter.install({
+      "json",
+      "javascript",
+      "html",
+      "css",
+      "bash",
+      "lua",
+      "vim",
+      "vimdoc",
+      "dockerfile",
+      "gitignore",
+      "c",
+      "cpp",
+      "cmake",
+      "python",
+      "rust",
+    })
+
+    -- Enable treesitter highlighting
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+      end,
     })
 
     -- use bash parser for zsh files

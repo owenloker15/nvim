@@ -8,7 +8,7 @@ local lsp_servers = {
 	"tsserver",
 	"clangd",
 	"rust_analyzer",
-	"cmake",
+	"cmake"
 }
 
 return {
@@ -153,6 +153,7 @@ return {
 			end
 
 			vim.lsp.enable(lsp_servers)
+
 		end,
 	},
 
